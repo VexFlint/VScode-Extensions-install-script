@@ -7,7 +7,7 @@ if ($null -eq (Get-Command choco.exe -ErrorAction SilentlyContinue)) {
 }
 
 # Verificar se o Lua está instalado
-if ((choco list --local-only lua | Select-String 'lua') -eq $null) {
+if (-eq $null(choco list --local-only lua | Select-String 'lua')) {
     # Se não estiver instalado, instale o Lua
     choco install lua -y
 }
